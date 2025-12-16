@@ -1,0 +1,293 @@
+[gd_scene load_steps=21 format=3 uid="uid://cyx2rvgubown8"]
+
+[ext_resource type="FontFile" uid="uid://bavu3i3dvljy3" path="res://Sprites/Estilos/AG_old_face_regular.otf" id="1_o2nf1"]
+[ext_resource type="Texture2D" uid="uid://c7dln3044hsdm" path="res://Sprites/iconos/1x_web/ic_account_circle_white_24dp.png" id="2_oxee8"]
+[ext_resource type="Texture2D" uid="uid://hwuf03ik3io5" path="res://Sprites/iconos/1x_web/ic_list_white_24dp.png" id="3_gqnu5"]
+[ext_resource type="Texture2D" uid="uid://byte54nrsfg5c" path="res://Sprites/iconos/1x_web/ic_aspect_ratio_white_24dp.png" id="4_s3lry"]
+[ext_resource type="Texture2D" uid="uid://cxc0ehboro0py" path="res://Sprites/iconos/1x_web/ic_flip_to_back_white_24dp.png" id="5_jrou6"]
+[ext_resource type="Texture2D" uid="uid://dwym48g6mu6p7" path="res://Sprites/iconos/1x_web/ic_room_white_24dp.png" id="6_p4jko"]
+[ext_resource type="Texture2D" uid="uid://by40w2tirgk7" path="res://Sprites/iconos/1x_web/ic_account_balance_white_24dp.png" id="7_kyiec"]
+[ext_resource type="Texture2D" uid="uid://c01gjmvfb2nde" path="res://Sprites/iconos/1x_web/ic_label_outline_white_24dp.png" id="8_7r3dm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8uc1"]
+bg_color = Color(0.105882, 0.227451, 0.184314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxscv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cj2s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds2bm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxa8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu55p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60x3v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yixh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3bmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jcpca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o22x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghvkj"]
+
+[node name="LateralMenu" type="Panel" groups=["latmenu"]]
+offset_right = 182.0
+offset_bottom = 527.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8uc1")
+metadata/_edit_lock_ = true
+
+[node name="BtnUsuarios" type="Button" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 165.0
+offset_bottom = 75.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Usuarios"
+icon = ExtResource("2_oxee8")
+metadata/_edit_lock_ = true
+
+[node name="BtnHorarios" type="Button" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 92.0
+offset_right = 165.0
+offset_bottom = 135.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Horarios"
+icon = ExtResource("3_gqnu5")
+metadata/_edit_lock_ = true
+
+[node name="BtnSalones" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 152.0
+offset_right = 166.0
+offset_bottom = 195.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Ambientes"
+icon = ExtResource("4_s3lry")
+metadata/_edit_lock_ = true
+
+[node name="BtnZonas" type="Button" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 212.0
+offset_right = 165.0
+offset_bottom = 255.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Zonas"
+icon = ExtResource("5_jrou6")
+metadata/_edit_lock_ = true
+
+[node name="BtnSedes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 272.0
+offset_right = 166.0
+offset_bottom = 315.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Sedes"
+icon = ExtResource("6_p4jko")
+metadata/_edit_lock_ = true
+
+[node name="BtnCentros" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 331.0
+offset_right = 164.0
+offset_bottom = 374.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Centros"
+icon = ExtResource("7_kyiec")
+metadata/_edit_lock_ = true
+
+[node name="BtnGrupos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 392.0
+offset_right = 165.0
+offset_bottom = 435.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("1_o2nf1")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxscv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7cj2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds2bm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vxa8f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu55p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60x3v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yixh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3bmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jcpca")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3o22x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ghvkj")
+text = "Grupos"
+icon = ExtResource("8_7r3dm")
+metadata/_edit_lock_ = true

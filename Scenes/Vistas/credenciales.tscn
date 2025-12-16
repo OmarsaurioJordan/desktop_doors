@@ -1,0 +1,500 @@
+[gd_scene load_steps=26 format=3 uid="uid://co4rnwu4u32el"]
+
+[ext_resource type="PackedScene" uid="uid://d2lg7n0j8phb3" path="res://Scenes/Componentes/header.tscn" id="1_l6vw8"]
+[ext_resource type="Theme" uid="uid://ys5m5jo3mjhs" path="res://Sprites/Estilos/theme.tres" id="2_2xgl5"]
+[ext_resource type="Texture2D" uid="uid://cxpf06getr8e8" path="res://Sprites/Referencias/wireframe_desktop.png" id="2_sjlxf"]
+[ext_resource type="FontFile" uid="uid://bavu3i3dvljy3" path="res://Sprites/Estilos/AG_old_face_regular.otf" id="3_fchor"]
+[ext_resource type="Texture2D" uid="uid://s8w4icmg5naf" path="res://Sprites/iconos/1x_web/ic_highlight_remove_white_24dp.png" id="4_fvtnu"]
+[ext_resource type="PackedScene" uid="uid://dihpnk8kbtrdr" path="res://Scenes/Componentes/campo_tabla.tscn" id="5_5lp2e"]
+[ext_resource type="Theme" uid="uid://byuw71bepva6s" path="res://Sprites/Estilos/theme_ext.tres" id="6_fchor"]
+[ext_resource type="PackedScene" uid="uid://clcmkgjftrhqq" path="res://Scenes/Componentes/panel.tscn" id="7_fvtnu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwinh"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq2rc"]
+bg_color = Color(0.105882, 0.227451, 0.184314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di21p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1euva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8ndn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw2fl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em56i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlndw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5cmct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8afpp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50u5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xgm5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8fek"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvtnu"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m01l8"]
+bg_color = Color(0.658824, 0.72549, 0.768627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqawu"]
+bg_color = Color(0.658824, 0.72549, 0.768627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lp2e"]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.713726, 0.819608, 0.760784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Credenciales" type="Panel" groups=["vistas"]]
+offset_right = 1142.0
+offset_bottom = 602.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwinh")
+metadata/_edit_lock_ = true
+
+[node name="Header" parent="." instance=ExtResource("1_l6vw8")]
+layout_mode = 0
+
+[node name="Volver" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 90.0
+offset_right = 436.0
+offset_bottom = 212.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iq2rc")
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="Volver"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 139.0
+offset_bottom = 48.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Credenciales"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BtnVolver" type="Button" parent="Volver"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 62.0
+offset_right = 126.0
+offset_bottom = 105.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_disabled_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.184314, 0.92549, 0.607843, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.352941, 1)
+theme_override_colors/icon_pressed_color = Color(0.180392, 0.909804, 0.6, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.184314, 0.917647, 0.603922, 1)
+theme_override_fonts/font = ExtResource("3_fchor")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_di21p")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1euva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g8ndn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dw2fl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_em56i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nlndw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5cmct")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8afpp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_50u5o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xgm5q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r8fek")
+text = "Volver"
+icon = ExtResource("4_fvtnu")
+metadata/_edit_lock_ = true
+
+[node name="TxtNombre" parent="Volver" instance=ExtResource("5_5lp2e")]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 17.0
+offset_right = 412.0
+offset_bottom = 58.0
+size_flags_stretch_ratio = 3.0
+disabled = true
+text = "*** Nombre ***"
+
+[node name="TxtCedula" parent="Volver" instance=ExtResource("5_5lp2e")]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 63.0
+offset_right = 412.0
+offset_bottom = 104.0
+size_flags_stretch_ratio = 3.0
+disabled = true
+text = "*** Cédula ***"
+
+[node name="NuevoCredencial" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 631.0
+offset_top = 90.0
+offset_right = 991.0
+offset_bottom = 212.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iq2rc")
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="NuevoCredencial"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 343.0
+offset_bottom = 48.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Nuevo registro de credencial"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TipoCredencial" type="Panel" parent="NuevoCredencial"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 62.0
+offset_right = 164.0
+offset_bottom = 105.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fvtnu")
+metadata/_edit_lock_ = true
+
+[node name="OptTipoCredencial" type="OptionButton" parent="NuevoCredencial/TipoCredencial"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 150.0
+offset_bottom = 44.0
+focus_mode = 0
+theme = ExtResource("6_fchor")
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Huella"
+popup/item_0/id = 0
+popup/item_1/text = "Facial"
+popup/item_1/id = 1
+popup/item_2/text = "Tarjeta"
+popup/item_2/id = 2
+popup/item_3/text = "Contraseña"
+popup/item_3/id = 3
+metadata/_edit_lock_ = true
+
+[node name="BtnCrear" type="Button" parent="NuevoCredencial"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 61.0
+offset_right = 346.0
+offset_bottom = 106.0
+focus_mode = 0
+theme = ExtResource("2_2xgl5")
+text = "Crear"
+metadata/_edit_lock_ = true
+
+[node name="Adquisicion" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 631.0
+offset_top = 225.0
+offset_right = 991.0
+offset_bottom = 585.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iq2rc")
+metadata/_edit_lock_ = true
+
+[node name="Huellero" type="Control" parent="Adquisicion"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="Adquisicion/Huellero"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 40.0
+offset_right = 346.0
+offset_bottom = 78.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Conexión a huellero digital"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PuertoHuellero" type="Panel" parent="Adquisicion/Huellero"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 108.0
+offset_right = 166.0
+offset_bottom = 151.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fvtnu")
+metadata/_edit_lock_ = true
+
+[node name="OptPuertoHuellero" type="OptionButton" parent="Adquisicion/Huellero/PuertoHuellero"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 145.0
+offset_bottom = 44.0
+focus_mode = 0
+theme = ExtResource("6_fchor")
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Port 1"
+popup/item_0/id = 0
+popup/item_1/text = "Port 2"
+popup/item_1/id = 1
+popup/item_2/text = "Port 3"
+popup/item_2/id = 2
+metadata/_edit_lock_ = true
+
+[node name="BtnProbar" type="Button" parent="Adquisicion/Huellero"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 107.0
+offset_right = 342.0
+offset_bottom = 152.0
+focus_mode = 0
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m01l8")
+text = "Probar"
+metadata/_edit_lock_ = true
+
+[node name="Password" type="Control" parent="Adquisicion"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="Adquisicion/Password"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 26.0
+offset_right = 347.0
+offset_bottom = 64.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Contraseña de cuenta de usuario"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LinPassword1" type="LineEdit" parent="Adquisicion/Password"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 67.0
+offset_right = 305.0
+offset_bottom = 113.0
+theme = ExtResource("2_2xgl5")
+placeholder_text = "Contraseña"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="LinPassword2" type="LineEdit" parent="Adquisicion/Password"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 119.0
+offset_right = 304.0
+offset_bottom = 165.0
+theme = ExtResource("2_2xgl5")
+placeholder_text = "Repítala"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="Otro" type="Control" parent="Adquisicion"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="Adquisicion/Otro"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 40.0
+offset_right = 346.0
+offset_bottom = 78.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Otro método de credencial"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtMessage" type="Label" parent="Adquisicion/Otro"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 82.0
+offset_right = 322.0
+offset_bottom = 164.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(0.752941, 0.596078, 0.329412, 1)
+text = "NO disponible en este momento, por favor intente con otro método válido"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="TxtMessage" type="Label" parent="Adquisicion"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 173.0
+offset_right = 322.0
+offset_bottom = 262.0
+theme = ExtResource("2_2xgl5")
+theme_override_colors/font_color = Color(0.752941, 0.596078, 0.329412, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="BtnAdquirir" type="Button" parent="Adquisicion"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 271.0
+offset_right = 166.0
+offset_bottom = 316.0
+focus_mode = 0
+theme = ExtResource("2_2xgl5")
+text = "Adquirir"
+metadata/_edit_lock_ = true
+
+[node name="BtnTestear" type="Button" parent="Adquisicion"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 272.0
+offset_right = 343.0
+offset_bottom = 317.0
+focus_mode = 0
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqawu")
+text = "Testear"
+metadata/_edit_lock_ = true
+
+[node name="PanelTabla" parent="." instance=ExtResource("7_fvtnu")]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 225.0
+offset_right = 436.0
+offset_bottom = 588.0
+
+[node name="Titulos" type="HBoxContainer" parent="PanelTabla"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 414.0
+offset_bottom = 40.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtId" type="Label" parent="PanelTabla/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lp2e")
+text = "ID"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtTipo" type="Label" parent="PanelTabla/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lp2e")
+text = "Tipo"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtOk" type="Label" parent="PanelTabla/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lp2e")
+text = "Ok"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtData" type="Label" parent="PanelTabla/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lp2e")
+text = "Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtFecha" type="Label" parent="PanelTabla/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme = ExtResource("2_2xgl5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lp2e")
+text = "Fecha"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Tabla" type="ScrollContainer" parent="PanelTabla"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 413.0
+offset_bottom = 354.0
+metadata/_edit_lock_ = true
+
+[node name="Registros" type="VBoxContainer" parent="PanelTabla/Tabla"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="SprMockups" type="Sprite2D" parent="." groups=["ocultable"]]
+visible = false
+self_modulate = Color(1, 1, 1, 0.486275)
+position = Vector2(-1170, -630)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_sjlxf")
+centered = false
+metadata/_edit_lock_ = true

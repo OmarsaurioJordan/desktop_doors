@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp7x3g74so3os"]
+
+[ext_resource type="Script" uid="uid://bwtil027usvya" path="res://Scripts/Componentes/registro_tabla.gd" id="1_3q7sk"]
+
+[node name="RegTabla" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_3q7sk")
+metadata/_edit_lock_ = true

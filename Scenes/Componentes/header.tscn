@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2lg7n0j8phb3"]
+
+[ext_resource type="Texture2D" uid="uid://3h115iiw28et" path="res://Sprites/Estilos/logo_sena.png" id="1_tcx16"]
+[ext_resource type="Theme" uid="uid://ys5m5jo3mjhs" path="res://Sprites/Estilos/theme.tres" id="2_5yecw"]
+[ext_resource type="Texture2D" uid="uid://bs5gvrfvskjwj" path="res://Sprites/iconos/1x_web/ic_help_white_48dp.png" id="3_qd43k"]
+[ext_resource type="Texture2D" uid="uid://ds5bexqkaqe62" path="res://Sprites/iconos/1x_web/ic_account_box_white_48dp.png" id="4_hm2wn"]
+[ext_resource type="Texture2D" uid="uid://cpi0852q6tigc" path="res://Sprites/iconos/1x_web/ic_settings_white_24dp.png" id="5_fm7xy"]
+[ext_resource type="Texture2D" uid="uid://bae1xyann370g" path="res://Sprites/iconos/1x_web/ic_exit_to_app_white_24dp.png" id="6_kcxhe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7y3f"]
+bg_color = Color(0.713726, 0.819608, 0.760784, 1)
+
+[node name="Header" type="Panel" groups=["headers"]]
+offset_right = 1142.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_t7y3f")
+metadata/_edit_lock_ = true
+
+[node name="SprLogo" type="Sprite2D" parent="."]
+position = Vector2(35.5, 39)
+scale = Vector2(0.23, 0.246667)
+texture = ExtResource("1_tcx16")
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 9.0
+offset_right = 395.0
+offset_bottom = 70.0
+theme = ExtResource("2_5yecw")
+theme_override_font_sizes/font_size = 40
+text = "Web Administrativa"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="SprAyuda" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(563, 38)
+texture = ExtResource("3_qd43k")
+metadata/_edit_lock_ = true
+
+[node name="TxtAyuda" type="Label" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 14.0
+offset_right = 667.0
+offset_bottom = 48.0
+theme = ExtResource("2_5yecw")
+text = "Ayuda"
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="SprAvatar" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1103, 38.5)
+scale = Vector2(1.25, 1.27083)
+texture = ExtResource("4_hm2wn")
+metadata/_edit_lock_ = true
+
+[node name="MnuAdmin" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 873.0
+offset_top = 16.0
+offset_right = 1069.0
+offset_bottom = 59.0
+theme = ExtResource("2_5yecw")
+alignment = 2
+text_overrun_behavior = 3
+item_count = 2
+popup/item_0/text = "Configuración"
+popup/item_0/icon = ExtResource("5_fm7xy")
+popup/item_0/id = 0
+popup/item_1/text = "Salir"
+popup/item_1/icon = ExtResource("6_kcxhe")
+popup/item_1/id = 1
+metadata/_edit_lock_ = true

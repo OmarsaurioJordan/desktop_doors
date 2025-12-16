@@ -1,0 +1,187 @@
+[gd_scene load_steps=11 format=3 uid="uid://tnxhtx4n8egi"]
+
+[ext_resource type="Texture2D" uid="uid://3h115iiw28et" path="res://Sprites/Estilos/logo_sena.png" id="1_all8y"]
+[ext_resource type="Texture2D" uid="uid://crbsa1mb1kgln" path="res://Sprites/Referencias/estilo_referencia.PNG" id="1_ebrdh"]
+[ext_resource type="Script" uid="uid://2wfxlrw80nwk" path="res://Scripts/Vistas/login.gd" id="1_oi7v6"]
+[ext_resource type="Theme" uid="uid://ys5m5jo3mjhs" path="res://Sprites/Estilos/theme.tres" id="2_dy8us"]
+[ext_resource type="Texture2D" uid="uid://bs5gvrfvskjwj" path="res://Sprites/iconos/1x_web/ic_help_white_48dp.png" id="3_ebrdh"]
+[ext_resource type="Texture2D" uid="uid://cxpf06getr8e8" path="res://Sprites/Referencias/wireframe_desktop.png" id="4_dy8us"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwinh"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7y3f"]
+bg_color = Color(0.713726, 0.819608, 0.760784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8uc1"]
+bg_color = Color(0.105882, 0.227451, 0.184314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wnrn"]
+bg_color = Color(0.658824, 0.72549, 0.768627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Login" type="Panel" groups=["vistas"]]
+offset_right = 1142.0
+offset_bottom = 602.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwinh")
+script = ExtResource("1_oi7v6")
+metadata/_edit_lock_ = true
+
+[node name="SprReferencia" type="Sprite2D" parent="." groups=["ocultable"]]
+visible = false
+position = Vector2(554, -423)
+texture = ExtResource("1_ebrdh")
+metadata/_edit_lock_ = true
+
+[node name="Header" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1142.0
+offset_bottom = 182.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_t7y3f")
+metadata/_edit_lock_ = true
+
+[node name="SprLogo" type="Sprite2D" parent="Header"]
+position = Vector2(574, 65)
+scale = Vector2(0.396667, 0.406667)
+texture = ExtResource("1_all8y")
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="Header"]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 114.0
+offset_right = 829.0
+offset_bottom = 175.0
+theme = ExtResource("2_dy8us")
+theme_override_font_sizes/font_size = 50
+text = "Web Administrativa"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LadoL" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 182.0
+offset_right = 300.0
+offset_bottom = 602.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8uc1")
+metadata/_edit_lock_ = true
+
+[node name="TxtInfo" type="Label" parent="LadoL"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 308.0
+offset_right = 171.0
+offset_bottom = 402.0
+theme = ExtResource("2_dy8us")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Información
+tel: 333666
+dir: calle 5 # 1
+mail: info@sena"
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="LadoR" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 182.0
+offset_right = 1142.0
+offset_bottom = 602.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8uc1")
+metadata/_edit_lock_ = true
+
+[node name="SprAyuda" type="Sprite2D" parent="LadoR"]
+position = Vector2(239, 340)
+texture = ExtResource("3_ebrdh")
+metadata/_edit_lock_ = true
+
+[node name="TxtAyuda" type="Label" parent="LadoR"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 363.0
+offset_right = 268.0
+offset_bottom = 397.0
+theme = ExtResource("2_dy8us")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Ayuda"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="LinCorreo" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 241.0
+offset_right = 679.0
+offset_bottom = 285.0
+theme = ExtResource("2_dy8us")
+placeholder_text = "Correo"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+metadata/_edit_lock_ = true
+
+[node name="LinClave" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 317.0
+offset_right = 680.0
+offset_bottom = 361.0
+theme = ExtResource("2_dy8us")
+placeholder_text = "Contraseña"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="BtnIngresar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 393.0
+offset_right = 678.0
+offset_bottom = 434.0
+focus_mode = 0
+theme = ExtResource("2_dy8us")
+text = "Ingresar"
+metadata/_edit_lock_ = true
+
+[node name="TxtMessage" type="Label" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 436.0
+offset_right = 676.0
+offset_bottom = 525.0
+theme = ExtResource("2_dy8us")
+theme_override_colors/font_color = Color(0.712692, 1.2514e-06, 4.81307e-07, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="BtnReestablecer" type="Button" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 527.0
+offset_right = 627.0
+offset_bottom = 572.0
+focus_mode = 0
+theme = ExtResource("2_dy8us")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8wnrn")
+text = "Reestablecer"
+metadata/_edit_lock_ = true
+
+[node name="SprMockups" type="Sprite2D" parent="." groups=["ocultable"]]
+visible = false
+self_modulate = Color(1, 1, 1, 0.486275)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_dy8us")
+centered = false
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="BtnIngresar" to="." method="_on_btn_ingresar_pressed"]
+[connection signal="pressed" from="BtnReestablecer" to="." method="_on_btn_reestablecer_pressed"]

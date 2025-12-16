@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://d07tk21pq8ddh"]
+
+[ext_resource type="Theme" uid="uid://ys5m5jo3mjhs" path="res://Sprites/Estilos/theme.tres" id="1_hjuca"]
+[ext_resource type="Script" uid="uid://dw1xqdx2my8si" path="res://Scripts/Componentes/pregunta.gd" id="1_tt5u4"]
+[ext_resource type="Theme" uid="uid://byuw71bepva6s" path="res://Sprites/Estilos/theme_ext.tres" id="2_v7kxq"]
+[ext_resource type="Texture2D" uid="uid://cxpf06getr8e8" path="res://Sprites/Referencias/wireframe_desktop.png" id="3_7jmxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwinh"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ds2bm"]
+bg_color = Color(0.105882, 0.227451, 0.184314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cj2s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wnrn"]
+bg_color = Color(0.658824, 0.72549, 0.768627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Pregunta" type="Panel"]
+self_modulate = Color(0, 0, 0, 0.513726)
+offset_right = 1142.0
+offset_bottom = 602.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwinh")
+script = ExtResource("1_tt5u4")
+metadata/_edit_lock_ = true
+
+[node name="Emergente" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 212.0
+offset_right = 708.0
+offset_bottom = 390.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ds2bm")
+metadata/_edit_lock_ = true
+
+[node name="TxtTitulo" type="Label" parent="Emergente"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 11.0
+offset_right = 290.0
+offset_bottom = 45.0
+theme = ExtResource("1_hjuca")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Va a seleccionar tal cosa"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Option" type="Panel" parent="Emergente"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 59.0
+offset_right = 241.0
+offset_bottom = 102.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7cj2s")
+metadata/_edit_lock_ = true
+
+[node name="OptOption" type="OptionButton" parent="Emergente/Option"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 173.0
+offset_bottom = 44.0
+focus_mode = 0
+theme = ExtResource("2_v7kxq")
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LinLinea" type="LineEdit" parent="Emergente"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 65.0
+offset_right = 286.0
+offset_bottom = 109.0
+theme = ExtResource("1_hjuca")
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+metadata/_edit_lock_ = true
+
+[node name="TxtSuceso" type="Label" parent="Emergente"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 51.0
+offset_right = 292.0
+offset_bottom = 114.0
+theme = ExtResource("1_hjuca")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "tal cosa pasó"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+metadata/_edit_lock_ = true
+
+[node name="BtnAceptar" type="Button" parent="Emergente"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 120.0
+offset_right = 283.0
+offset_bottom = 163.0
+focus_mode = 0
+theme = ExtResource("1_hjuca")
+text = "Aceptar"
+metadata/_edit_lock_ = true
+
+[node name="BtnCancelar" type="Button" parent="Emergente"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 119.0
+offset_right = 119.0
+offset_bottom = 164.0
+focus_mode = 0
+theme = ExtResource("1_hjuca")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8wnrn")
+text = "Cancelar"
+metadata/_edit_lock_ = true
+
+[node name="SprMockups" type="Sprite2D" parent="." groups=["ocultable"]]
+visible = false
+self_modulate = Color(1, 1, 1, 0.486275)
+position = Vector2(-1171, -3148)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_7jmxy")
+centered = false
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Emergente/BtnAceptar" to="." method="_on_btn_aceptar_pressed"]
+[connection signal="pressed" from="Emergente/BtnCancelar" to="." method="_on_btn_cancelar_pressed"]

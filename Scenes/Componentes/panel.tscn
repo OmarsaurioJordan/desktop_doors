@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://clcmkgjftrhqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur7yj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.796078, 0.870588, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Panel" type="Panel"]
+offset_right = 929.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ur7yj")
+metadata/_edit_lock_ = true

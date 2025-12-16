@@ -1,0 +1,67 @@
+[gd_scene load_steps=16 format=3 uid="uid://cy7l8585xk7wo"]
+
+[ext_resource type="Script" uid="uid://b2p85f2wtyjql" path="res://Scripts/control.gd" id="1_vphrd"]
+[ext_resource type="Script" uid="uid://b0kd6v7o4uxva" path="res://Scripts/Modelos/md_general.gd" id="2_gi5fq"]
+[ext_resource type="Script" uid="uid://dpo3hbsh0ookc" path="res://Scripts/Modelos/md_usuarios.gd" id="3_s5sn0"]
+[ext_resource type="PackedScene" uid="uid://tnxhtx4n8egi" path="res://Scenes/Vistas/login.tscn" id="4_uuio0"]
+[ext_resource type="PackedScene" uid="uid://hy1k0xv8xbfh" path="res://Scenes/Vistas/usuarios.tscn" id="5_xxscv"]
+[ext_resource type="PackedScene" uid="uid://d0p8uk6nibjtm" path="res://Scenes/Vistas/nuevo_usuario.tscn" id="6_7cj2s"]
+[ext_resource type="PackedScene" uid="uid://djw30lggua4y3" path="res://Scenes/Vistas/horarios.tscn" id="7_ds2bm"]
+[ext_resource type="PackedScene" uid="uid://bd73qxxixfexl" path="res://Scenes/Vistas/salones.tscn" id="8_vxa8f"]
+[ext_resource type="PackedScene" uid="uid://pkduypttl18b" path="res://Scenes/Vistas/zonas.tscn" id="9_wu55p"]
+[ext_resource type="PackedScene" uid="uid://h6x72x0evjw6" path="res://Scenes/Vistas/centros.tscn" id="10_60x3v"]
+[ext_resource type="PackedScene" uid="uid://bbxk4fjpnwktp" path="res://Scenes/Vistas/sedes.tscn" id="11_1yixh"]
+[ext_resource type="PackedScene" uid="uid://ca7ihkmiwn56o" path="res://Scenes/Vistas/grupos.tscn" id="12_l3bmo"]
+[ext_resource type="PackedScene" uid="uid://co4rnwu4u32el" path="res://Scenes/Vistas/credenciales.tscn" id="13_jcpca"]
+[ext_resource type="PackedScene" uid="uid://bjdo8bkpillwl" path="res://Scenes/Vistas/permisos.tscn" id="13_s5sn0"]
+[ext_resource type="PackedScene" uid="uid://d07tk21pq8ddh" path="res://Scenes/Componentes/pregunta.tscn" id="14_3o22x"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vphrd")
+metadata/_edit_lock_ = true
+
+[node name="Modelos" type="Node" parent="."]
+script = ExtResource("2_gi5fq")
+
+[node name="Usuarios" type="Node" parent="Modelos"]
+script = ExtResource("3_s5sn0")
+
+[node name="Login" parent="." instance=ExtResource("4_uuio0")]
+layout_mode = 0
+
+[node name="Usuarios" parent="." instance=ExtResource("5_xxscv")]
+layout_mode = 0
+
+[node name="NuevoUsuario" parent="." instance=ExtResource("6_7cj2s")]
+layout_mode = 0
+
+[node name="Horarios" parent="." instance=ExtResource("7_ds2bm")]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1143.0
+
+[node name="Salones" parent="." instance=ExtResource("8_vxa8f")]
+layout_mode = 0
+
+[node name="Zonas" parent="." instance=ExtResource("9_wu55p")]
+layout_mode = 0
+
+[node name="Centros" parent="." instance=ExtResource("10_60x3v")]
+layout_mode = 0
+
+[node name="Sedes" parent="." instance=ExtResource("11_1yixh")]
+layout_mode = 0
+
+[node name="Grupos" parent="." instance=ExtResource("12_l3bmo")]
+layout_mode = 0
+
+[node name="Credenciales" parent="." instance=ExtResource("13_jcpca")]
+layout_mode = 0
+
+[node name="Permisos" parent="." instance=ExtResource("13_s5sn0")]
+layout_mode = 0
+
+[node name="Pregunta" parent="." instance=ExtResource("14_3o22x")]
+layout_mode = 0
