@@ -19,6 +19,9 @@ func set_value(ind: int, value: String) -> void:
 func get_value(ind: int) -> String:
 	return get_children()[ind].text
 
+func get_registro(ind: int) -> Node:
+	return get_children()[ind]
+
 func pulsado() -> void:
 	set_presionado(true)
 	seleccionado.emit(int(get_value(0)))

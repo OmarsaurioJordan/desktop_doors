@@ -28,6 +28,12 @@ vistas=""
 latmenu=""
 ocultable=""
 opt_roles=""
+opt_centros=""
+opt_salones=""
+opt_sedes=""
+opt_usuarios=""
+opt_zonas=""
+opt_emergente=""
 
 [rendering]
 

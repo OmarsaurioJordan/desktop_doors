@@ -50,7 +50,7 @@ offset_top = 90.0
 offset_right = 1125.0
 offset_bottom = 165.0
 
-[node name="OptUsuario" type="OptionButton" parent="PanelFiltros"]
+[node name="OptUsuario" type="OptionButton" parent="PanelFiltros" groups=["opt_usuarios"]]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 16.0
@@ -62,7 +62,7 @@ alignment = 1
 text_overrun_behavior = 3
 metadata/_edit_lock_ = true
 
-[node name="OptSalon" type="OptionButton" parent="PanelFiltros"]
+[node name="OptSalon" type="OptionButton" parent="PanelFiltros" groups=["opt_salones"]]
 layout_mode = 0
 offset_left = 223.0
 offset_top = 16.0
@@ -74,7 +74,7 @@ alignment = 1
 text_overrun_behavior = 3
 metadata/_edit_lock_ = true
 
-[node name="OptZona" type="OptionButton" parent="PanelFiltros"]
+[node name="OptCentro" type="OptionButton" parent="PanelFiltros" groups=["opt_centros"]]
 layout_mode = 0
 offset_left = 373.0
 offset_top = 17.0
@@ -86,7 +86,7 @@ alignment = 1
 text_overrun_behavior = 3
 metadata/_edit_lock_ = true
 
-[node name="OptSede" type="OptionButton" parent="PanelFiltros"]
+[node name="OptSede" type="OptionButton" parent="PanelFiltros" groups=["opt_sedes"]]
 layout_mode = 0
 offset_left = 525.0
 offset_top = 16.0
@@ -96,16 +96,6 @@ focus_mode = 0
 theme = ExtResource("4_ptcsw")
 alignment = 1
 text_overrun_behavior = 3
-selected = 0
-item_count = 4
-popup/item_0/text = "N/A"
-popup/item_0/id = 0
-popup/item_1/text = "Salomia"
-popup/item_1/id = 1
-popup/item_2/text = "Norte"
-popup/item_2/id = 2
-popup/item_3/text = "Pondaje"
-popup/item_3/id = 3
 metadata/_edit_lock_ = true
 
 [node name="BtnBuscar" type="Button" parent="PanelFiltros"]
@@ -290,11 +280,11 @@ offset_bottom = 175.0
 alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="TxtEmail" parent="PanelUsuario/Datos3" instance=ExtResource("6_fipbb")]
+[node name="TxtCentro" parent="PanelUsuario/Datos3" instance=ExtResource("6_fipbb")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
 disabled = true
-text = "*** eMail ***"
+text = "*** Centro ***"
 
 [node name="TxtSede" parent="PanelUsuario/Datos3" instance=ExtResource("6_fipbb")]
 layout_mode = 2

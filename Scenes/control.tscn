@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy7l8585xk7wo"]
+[gd_scene load_steps=17 format=3 uid="uid://cy7l8585xk7wo"]
 
 [ext_resource type="Script" uid="uid://b2p85f2wtyjql" path="res://Scripts/control.gd" id="1_vphrd"]
 [ext_resource type="Script" uid="uid://b0kd6v7o4uxva" path="res://Scripts/Modelos/md_general.gd" id="2_gi5fq"]
 [ext_resource type="Script" uid="uid://dpo3hbsh0ookc" path="res://Scripts/Modelos/md_usuarios.gd" id="3_s5sn0"]
+[ext_resource type="Script" uid="uid://db318nqxbev36" path="res://Scripts/Modelos/md_centros.gd" id="4_s5sn0"]
 [ext_resource type="PackedScene" uid="uid://tnxhtx4n8egi" path="res://Scenes/Vistas/login.tscn" id="4_uuio0"]
 [ext_resource type="PackedScene" uid="uid://hy1k0xv8xbfh" path="res://Scenes/Vistas/usuarios.tscn" id="5_xxscv"]
 [ext_resource type="PackedScene" uid="uid://d0p8uk6nibjtm" path="res://Scenes/Vistas/nuevo_usuario.tscn" id="6_7cj2s"]
@@ -27,6 +28,23 @@ script = ExtResource("2_gi5fq")
 
 [node name="Usuarios" type="Node" parent="Modelos"]
 script = ExtResource("3_s5sn0")
+
+[node name="Centros" type="Node" parent="Modelos"]
+script = ExtResource("4_s5sn0")
+
+[node name="Zonas" type="Node" parent="Modelos"]
+
+[node name="Salones" type="Node" parent="Modelos"]
+
+[node name="Grupos" type="Node" parent="Modelos"]
+
+[node name="Sedes" type="Node" parent="Modelos"]
+
+[node name="Credenciales" type="Node" parent="Modelos"]
+
+[node name="Horarios" type="Node" parent="Modelos"]
+
+[node name="Permisos" type="Node" parent="Modelos"]
 
 [node name="Login" parent="." instance=ExtResource("4_uuio0")]
 layout_mode = 0
@@ -65,3 +83,9 @@ layout_mode = 0
 
 [node name="Pregunta" parent="." instance=ExtResource("14_3o22x")]
 layout_mode = 0
+
+[node name="TimerBusqueda" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerBusqueda" to="." method="_on_timer_busqueda_timeout"]

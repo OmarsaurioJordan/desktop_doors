@@ -1,5 +1,7 @@
 extends Node
 
+const ACTIVO = ["--", "|"] # false, true
+
 const ROLES = [
 	"N/A", # 0
 	"Instructor", # 1
@@ -12,17 +14,17 @@ const ROLES = [
 	"Otro" # 8
 ]
 
+signal actualizacion()
+
 func _ready() -> void:
 	randomize()
-	set_opt_rol()
+	get_parent().set_selector_grupo(ROLES, "opt_roles")
+	# cargar datos artificiales en el modelo de informacion
+	call_deferred("carga_por_defecto")
 
-# funcion general para cargar selectores de rol
-func set_opt_rol() -> void:
-	for opt in get_tree().get_nodes_in_group("opt_roles"):
-		opt.clear()
-		for rol in ROLES:
-			opt.add_item(rol)
-		opt.select(0)
+func carga_por_defecto() -> void:
+	for i in range(90):
+		$Usuarios.create_azar(i < 3)
 
 # funciones generales para manejo de datos
 
@@ -37,6 +39,13 @@ func set_valor(data: Array, id: int, valor, tipo="") -> void:
 		for dt in data:
 			if id == dt["id"]:
 				dt[tipo] = valor
+				actualizacion.emit()
+
+func get_valor(data: Array, id: int, tipo="", defecto=""):
+	for dt in data:
+		if id == dt["id"]:
+			return dt[tipo]
+	return defecto
 
 func get_nombre(data: Array, id: int) -> String:
 	for dt in data:
@@ -50,6 +59,23 @@ func get_nombres(data: Array) -> Array:
 		res.append(dt["nombre"])
 	return res
 
+func get_conteo(data: Array, valor, tipo="") -> int:
+	var tot = 0
+	for dt in data:
+		if valor == dt[tipo]:
+			tot += 1
+	return tot
+
+func busca_data(data: Array, valor, tipo="") -> Array:
+	var res = []
+	for dt in data:
+		if dt["id"] == 0:
+			continue
+		if dt[tipo] != valor:
+			continue
+		res.append(dt)
+	return res
+
 # funciones generales como herramientas
 
 func clave_azar(total: int) -> String:
@@ -60,3 +86,6 @@ func clave_azar(total: int) -> String:
 
 func item_azar(arr: Array):
 	return arr[randi() % arr.size()]
+
+func get_activo(is_act: bool) -> String:
+	return ACTIVO[1] if is_act else ACTIVO[0]

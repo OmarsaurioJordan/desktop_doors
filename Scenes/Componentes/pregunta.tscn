@@ -69,7 +69,7 @@ offset_bottom = 102.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7cj2s")
 metadata/_edit_lock_ = true
 
-[node name="OptOption" type="OptionButton" parent="Emergente/Option"]
+[node name="OptOption" type="OptionButton" parent="Emergente/Option" groups=["opt_emergente"]]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0

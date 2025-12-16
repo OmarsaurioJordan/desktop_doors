@@ -20,11 +20,6 @@ func _ready() -> void:
 			if btn.name == "Btn" + lme.get_parent().name:
 				btn.disabled = true
 			btn.pressed.connect(set_vista.bind(btn.name.replace("Btn", "")))
-	# cargar datos artificiales en el modelo de informacion
-	call_deferred("carga_por_defecto")
-
-func carga_por_defecto() -> void:
-	pass
 
 func _on_menu_item(id: int):
 	match id:
@@ -36,3 +31,29 @@ func _on_menu_item(id: int):
 func set_vista(vista: String) -> void:
 	for vis in get_tree().get_nodes_in_group("vistas"):
 		vis.visible = vis.name == vista
+
+# funcion general para cargar items en selector por grupo
+func set_selector_grupo(nombres: Array, grupo="", defecto=-1) -> void:
+	var limpiar: bool
+	for opt in get_tree().get_nodes_in_group(grupo):
+		if opt.get_item_count() == nombres.size():
+			limpiar = false
+			for i in range(opt.get_item_count()):
+				if opt.get_item_text(i) != nombres[i]:
+					limpiar = true
+					break
+			if not limpiar:
+				if defecto != -1:
+					opt.select(defecto)
+				continue
+		opt.clear()
+		for n in nombres:
+			opt.add_item(n)
+		if defecto != -1:
+			opt.select(defecto)
+		else:
+			opt.select(0)
+
+func _on_timer_busqueda_timeout() -> void:
+	$Usuarios._on_btn_buscar_pressed()
+	$Centros._on_btn_buscar_pressed()

@@ -105,14 +105,14 @@ func create_azar(force_admin=false) -> int:
 		centro = 1 + randi() % tot_centros
 	return create(
 		first,
-		md.item_azar(nombres) if randf() < 0.5 else "",
+		md.item_azar(nombres) if randf() < 0.75 else "",
 		md.item_azar(APELLIDOS),
 		md.item_azar(APELLIDOS),
 		md.clave_azar(4),
 		rol,
 		centro,
 		md.clave_azar(6),
-		first + md.clave_azar(2) + md.item_azar(DOMINIOS)
+		first.to_lower() + md.clave_azar(2) + md.item_azar(DOMINIOS)
 	)
 
 func create(n1, n2, a1, a2, cc, rol, centro=0, telefono="", email="") -> int:
@@ -133,26 +133,32 @@ func create(n1, n2, a1, a2, cc, rol, centro=0, telefono="", email="") -> int:
 		u["nombre"] = u["nombre"].replace("  ", " ")
 	u["nombre"] = u["nombre"].trim_prefix(" ").trim_suffix(" ")
 	data.append(u)
+	get_parent().actualizacion.emit()
 	return u["id"]
 
 # funciones de busqueda con filtros
 
-func busca_usuarios(nombre="", valor="", tipo="", rol_id=0) -> Array:
+func busca_usuarios(nombre="", valor="", tipo="", rol_id=0, centro_id=0) -> Array:
 	var res = []
 	for dt in data:
 		if dt["id"] == 0:
 			continue
-		if nombre != "" and dt["nombre"].countn(nombre) == 0:
+		if nombre != "" and dt["nombre"].to_lower().countn(nombre.to_lower()) == 0:
 			continue
 		if valor != "" and tipo != "":
 			if dt[tipo] != valor:
 				continue
 		if rol_id != 0 and dt["rol_id"] != rol_id:
 			continue
+		if centro_id != 0 and dt["centro_id"] != centro_id:
+			continue
 		res.append(dt)
 	return res
 
 # funciones genericas heredadas del modelo general
+
+func busca_data(valor, tipo="") -> Array:
+	return md.busca_data(data, valor, tipo)
 
 func get_data(id: int) -> Dictionary:
 	return md.get_data(data, id)
