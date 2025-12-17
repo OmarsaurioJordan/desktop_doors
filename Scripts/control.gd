@@ -1,6 +1,6 @@
 extends Control
 
-const DEBUG = true # para ingresar instantaneamente sin login
+const DEBUG = false # para ingresar instantaneamente sin login
 
 func _ready() -> void:
 	randomize()
@@ -57,3 +57,8 @@ func set_selector_grupo(nombres: Array, grupo="", defecto=-1) -> void:
 func _on_timer_busqueda_timeout() -> void:
 	$Usuarios._on_btn_buscar_pressed()
 	$Centros._on_btn_buscar_pressed()
+	$Grupos._on_btn_buscar_pressed()
+	$Sedes._on_btn_buscar_pressed()
+	$Zonas._on_btn_buscar_pressed()
+	$Salones._on_btn_buscar_pressed()
+	$Horarios._on_btn_buscar_pressed()

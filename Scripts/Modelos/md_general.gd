@@ -23,8 +23,18 @@ func _ready() -> void:
 	call_deferred("carga_por_defecto")
 
 func carga_por_defecto() -> void:
+	for i in range(16):
+		$Zonas.create_azar()
 	for i in range(90):
 		$Usuarios.create_azar(i < 3)
+	for i in range(80):
+		$Salones.create_azar()
+	for i in range(25):
+		$Grupos.create_azar()
+	for i in range(50 * 4):
+		$Horarios.create_azar()
+	for u in $Usuarios.data:
+		$Credenciales.create_azar(u["id"])
 
 # funciones generales para manejo de datos
 
@@ -86,6 +96,9 @@ func clave_azar(total: int) -> String:
 
 func item_azar(arr: Array):
 	return arr[randi() % arr.size()]
+
+func item_azar_no_cero(arr: Array):
+	return arr[1 + randi() % (arr.size() - 1)]
 
 func get_activo(is_act: bool) -> String:
 	return ACTIVO[1] if is_act else ACTIVO[0]

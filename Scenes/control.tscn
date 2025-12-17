@@ -1,14 +1,20 @@
-[gd_scene load_steps=17 format=3 uid="uid://cy7l8585xk7wo"]
+[gd_scene load_steps=23 format=3 uid="uid://cy7l8585xk7wo"]
 
 [ext_resource type="Script" uid="uid://b2p85f2wtyjql" path="res://Scripts/control.gd" id="1_vphrd"]
 [ext_resource type="Script" uid="uid://b0kd6v7o4uxva" path="res://Scripts/Modelos/md_general.gd" id="2_gi5fq"]
 [ext_resource type="Script" uid="uid://dpo3hbsh0ookc" path="res://Scripts/Modelos/md_usuarios.gd" id="3_s5sn0"]
 [ext_resource type="Script" uid="uid://db318nqxbev36" path="res://Scripts/Modelos/md_centros.gd" id="4_s5sn0"]
 [ext_resource type="PackedScene" uid="uid://tnxhtx4n8egi" path="res://Scenes/Vistas/login.tscn" id="4_uuio0"]
+[ext_resource type="Script" uid="uid://dgeop0cg34l72" path="res://Scripts/Modelos/md_zonas.gd" id="5_ikxuy"]
 [ext_resource type="PackedScene" uid="uid://hy1k0xv8xbfh" path="res://Scenes/Vistas/usuarios.tscn" id="5_xxscv"]
 [ext_resource type="PackedScene" uid="uid://d0p8uk6nibjtm" path="res://Scenes/Vistas/nuevo_usuario.tscn" id="6_7cj2s"]
+[ext_resource type="Script" uid="uid://c5gkleb4c42wc" path="res://Scripts/Modelos/md_salones.gd" id="6_n3b1b"]
+[ext_resource type="Script" uid="uid://drq8uiexm0lgh" path="res://Scripts/Modelos/md_grupos.gd" id="7_b65us"]
 [ext_resource type="PackedScene" uid="uid://djw30lggua4y3" path="res://Scenes/Vistas/horarios.tscn" id="7_ds2bm"]
+[ext_resource type="Script" uid="uid://b3cw30anwvbbf" path="res://Scripts/Modelos/md_sedes.gd" id="8_d6tv3"]
 [ext_resource type="PackedScene" uid="uid://bd73qxxixfexl" path="res://Scenes/Vistas/salones.tscn" id="8_vxa8f"]
+[ext_resource type="Script" uid="uid://dek5xkrpvx4p1" path="res://Scripts/Modelos/md_credenciales.gd" id="9_b65us"]
+[ext_resource type="Script" uid="uid://ri8ph0in27yd" path="res://Scripts/Modelos/md_horarios.gd" id="9_n3b1b"]
 [ext_resource type="PackedScene" uid="uid://pkduypttl18b" path="res://Scenes/Vistas/zonas.tscn" id="9_wu55p"]
 [ext_resource type="PackedScene" uid="uid://h6x72x0evjw6" path="res://Scenes/Vistas/centros.tscn" id="10_60x3v"]
 [ext_resource type="PackedScene" uid="uid://bbxk4fjpnwktp" path="res://Scenes/Vistas/sedes.tscn" id="11_1yixh"]
@@ -33,16 +39,22 @@ script = ExtResource("3_s5sn0")
 script = ExtResource("4_s5sn0")
 
 [node name="Zonas" type="Node" parent="Modelos"]
+script = ExtResource("5_ikxuy")
 
 [node name="Salones" type="Node" parent="Modelos"]
+script = ExtResource("6_n3b1b")
 
 [node name="Grupos" type="Node" parent="Modelos"]
+script = ExtResource("7_b65us")
 
 [node name="Sedes" type="Node" parent="Modelos"]
+script = ExtResource("8_d6tv3")
 
 [node name="Credenciales" type="Node" parent="Modelos"]
+script = ExtResource("9_b65us")
 
 [node name="Horarios" type="Node" parent="Modelos"]
+script = ExtResource("9_n3b1b")
 
 [node name="Permisos" type="Node" parent="Modelos"]
 

@@ -45,7 +45,24 @@ func preguntar(tipo: int, titulo: String, parametros, dic_pregunta) -> void:
 			$Emergente/TxtSuceso.visible = true
 			$Emergente/TxtSuceso.text = parametros
 
-func pregunta_line(modelname: String, tipo: String, id: int, quien: Node, titulo: String) -> void:
+func pregunta_option(modelname: String, tipo: String, id: int,
+		quien: Node, titulo: String, parametros: Array) -> void:
+	var md = get_parent().get_node("Modelos")
+	var dic_pregunta = {
+		"data": md.get_node(modelname).data,
+		"id": id,
+		"valor": "",
+		"tipo": tipo,
+		"quien": quien
+	}
+	dic_pregunta["valor"] = md.get_valor(
+		dic_pregunta["data"],
+		dic_pregunta["id"],
+		dic_pregunta["tipo"], 0)
+	preguntar(TIPO.OPTION, titulo, parametros, dic_pregunta)
+
+func pregunta_line(modelname: String, tipo: String, id: int,
+		quien: Node, titulo: String) -> void:
 	var md = get_parent().get_node("Modelos")
 	var dic_pregunta = {
 		"data": md.get_node(modelname).data,

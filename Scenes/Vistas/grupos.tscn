@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca7ihkmiwn56o"]
+[gd_scene load_steps=11 format=3 uid="uid://ca7ihkmiwn56o"]
 
+[ext_resource type="Script" uid="uid://cuej66nfopqbn" path="res://Scripts/Vistas/grupos.gd" id="1_jk43g"]
 [ext_resource type="PackedScene" uid="uid://d2lg7n0j8phb3" path="res://Scenes/Componentes/header.tscn" id="1_onmrn"]
 [ext_resource type="PackedScene" uid="uid://cyx2rvgubown8" path="res://Scenes/Componentes/lateral_menu.tscn" id="2_sg8rq"]
 [ext_resource type="PackedScene" uid="uid://clcmkgjftrhqq" path="res://Scenes/Componentes/panel.tscn" id="3_m2ajn"]
@@ -30,6 +31,7 @@ corner_radius_bottom_left = 5
 offset_right = 1142.0
 offset_bottom = 602.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kwinh")
+script = ExtResource("1_jk43g")
 metadata/_edit_lock_ = true
 
 [node name="Header" parent="." instance=ExtResource("1_onmrn")]
@@ -60,7 +62,7 @@ caret_blink = true
 caret_blink_interval = 0.5
 metadata/_edit_lock_ = true
 
-[node name="OptConUser" type="OptionButton" parent="PanelFiltros"]
+[node name="OptConUsuario" type="OptionButton" parent="PanelFiltros"]
 layout_mode = 0
 offset_left = 224.0
 offset_top = 16.0
@@ -245,3 +247,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_sg8rq")
 centered = false
 metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="PanelFiltros/BtnBuscar" to="." method="_on_btn_buscar_pressed"]
+[connection signal="pressed" from="PanelFiltros/BtnNuevo" to="." method="_on_btn_nuevo_pressed"]

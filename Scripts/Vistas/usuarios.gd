@@ -148,6 +148,7 @@ func seleccionado(id=-1):
 		$PanelDetalles/TxtCentro.text = md.get_node("Centros").get_nombre(usr["centro_id"])
 		$PanelDetalles/TxtRol.text = md.ROLES[usr["rol_id"]]
 		$PanelDetalles/TxtId.text = str(id)
+		get_parent().get_node("Credenciales").propagado(id)
 		for r in $PanelTabla/Tabla/Registros.get_children():
 			r.soy_presionado(id)
 

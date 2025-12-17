@@ -46,15 +46,39 @@ func busca_centros(nombre="", con_usuario=0, con_zona=0, con_salon=0) -> Array:
 			elif con_usuario == 2 and usrs != 0:
 				continue
 		if con_zona != 0:
-			pass
+			var zns = get_num_zonas(dt["id"])
+			if con_usuario == 1 and zns == 0:
+				continue
+			elif con_usuario == 2 and zns != 0:
+				continue
 		if con_salon != 0:
-			pass
+			var slns = get_num_salones(dt["id"])
+			if con_usuario == 1 and slns == 0:
+				continue
+			elif con_usuario == 2 and slns != 0:
+				continue
 		res.append(dt)
 	return res
 
 func get_num_usuarios(centro_id: int) -> int:
 	var la_data = md.get_node("Usuarios").data
 	return md.get_conteo(la_data, centro_id, "centro_id")
+
+func get_num_salones(centro_id: int) -> int:
+	var la_data = md.get_node("Salones").data
+	return md.get_conteo(la_data, centro_id, "centro_id")
+
+func get_num_zonas(centro_id: int) -> int:
+	var zns = []
+	var la_data = md.get_node("Zonas").data
+	var sln = md.get_node("Salones").busca_data(centro_id, "centro_id")
+	for s in sln:
+		if s["zona_id"] == 0:
+			continue
+		var n = md.get_nombre(la_data, s["zona_id"])
+		if not n in zns:
+			zns.append(n)
+	return zns.size()
 
 # funciones genericas heredadas del modelo general
 

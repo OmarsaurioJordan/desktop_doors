@@ -200,6 +200,7 @@ offset_bottom = 44.0
 focus_mode = 0
 theme = ExtResource("6_fchor")
 alignment = 1
+text_overrun_behavior = 3
 selected = 0
 item_count = 4
 popup/item_0/text = "Huella"
@@ -233,6 +234,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_iq2rc")
 metadata/_edit_lock_ = true
 
 [node name="Huellero" type="Control" parent="Adquisicion"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -292,7 +294,6 @@ text = "Probar"
 metadata/_edit_lock_ = true
 
 [node name="Password" type="Control" parent="Adquisicion"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -501,4 +502,13 @@ texture = ExtResource("2_sjlxf")
 centered = false
 metadata/_edit_lock_ = true
 
+[node name="TimerOk" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="pressed" from="Volver/BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="NuevoCredencial/BtnCrear" to="." method="_on_btn_crear_pressed"]
+[connection signal="pressed" from="Adquisicion/Huellero/BtnProbar" to="." method="_on_btn_probar_pressed"]
+[connection signal="pressed" from="Adquisicion/BtnAdquirir" to="." method="_on_btn_adquirir_pressed"]
+[connection signal="pressed" from="Adquisicion/BtnTestear" to="." method="_on_btn_testear_pressed"]
+[connection signal="timeout" from="TimerOk" to="." method="_on_timer_ok_timeout"]

@@ -155,6 +155,16 @@ func busca_usuarios(nombre="", valor="", tipo="", rol_id=0, centro_id=0) -> Arra
 		res.append(dt)
 	return res
 
+func busca_profesores() -> Array:
+	var res = []
+	for dt in data:
+		if dt["id"] == 0:
+			continue
+		if dt["rol_id"] > 2:
+			continue
+		res.append(dt)
+	return res
+
 # funciones genericas heredadas del modelo general
 
 func busca_data(valor, tipo="") -> Array:
