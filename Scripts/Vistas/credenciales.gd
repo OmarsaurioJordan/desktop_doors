@@ -93,11 +93,11 @@ func _on_btn_adquirir_pressed() -> void:
 	if $Adquisicion/Huellero.visible:
 		var port = $Adquisicion/Huellero/PuertoHuellero/OptPuertoHuellero.get_selected_id()
 		var md = get_parent().get_node("Modelos")
-		if md.get_node("Credenciales").get_data(my_seleccionado)["datos"] != "":
+		if md.get_node("Credenciales").hay_credencial(my_seleccionado):
 			$Adquisicion/TxtMessage.text = "Ya se ha tomado una biometría"
 		elif port == 1:
-			if randf() < 0.5:
-				set_credencial(md.clave_azar(64))
+			if randf() < 0.5: # para simular un dedo mal puesto
+				set_credencial(md.clave_azar(64), false)
 			else:
 				$Adquisicion/TxtMessage.text = "Mala lectura por favor re inténtelo"
 		else:
@@ -112,25 +112,28 @@ func _on_btn_adquirir_pressed() -> void:
 		elif p1 != p2:
 			$Adquisicion/TxtMessage.text = "Las contraseñas deben ser iguales"
 		else:
-			set_credencial(p1)
+			set_credencial(p1, true)
 		$Adquisicion/Password/LinPassword1.text = ""
 		$Adquisicion/Password/LinPassword2.text = ""
 
-func set_credencial(valor: String):
+func set_credencial(valor: String, con_hash=false):
 	var md = get_parent().get_node("Modelos")
-	md.get_node("Credenciales").set_valor(my_seleccionado, valor, "datos")
+	if con_hash:
+		md.get_node("Credenciales").set_valor_hash(my_seleccionado, valor, "datos")
+	else:
+		md.get_node("Credenciales").set_valor(my_seleccionado, valor, "datos")
 	var date = Time.get_unix_time_from_system()
 	md.get_node("Credenciales").set_valor(my_seleccionado, date, "fecha")
 	$TimerOk.start()
 
 func _on_btn_testear_pressed() -> void:
 	var md = get_parent().get_node("Modelos")
-	if md.get_node("Credenciales").get_data(my_seleccionado)["datos"] == "":
+	if not md.get_node("Credenciales").hay_credencial(my_seleccionado):
 		$Adquisicion/TxtMessage.text = "NO hay un dato en memoria para comparar"
 	elif $Adquisicion/Huellero.visible:
 		var port = $Adquisicion/Huellero/PuertoHuellero/OptPuertoHuellero.get_selected_id()
 		if port == 1:
-			if randf() < 0.5:
+			if randf() < 0.5: # para simular un dedo mal puesto
 				$Adquisicion/TxtMessage.text = "La huella leída es correcta"
 			else:
 				$Adquisicion/TxtMessage.text = "Mala lectura por favor re inténtelo"
@@ -140,7 +143,7 @@ func _on_btn_testear_pressed() -> void:
 		$Adquisicion/TxtMessage.text = "No está disponible"
 	else:
 		var p = $Adquisicion/Password/LinPassword1.text
-		if p == md.get_node("Credenciales").get_data(my_seleccionado)["datos"]:
+		if md.get_node("Credenciales").test_credencial_hash(my_seleccionado, p):
 			$Adquisicion/TxtMessage.text = "La contraseña es correcta"
 		else:
 			$Adquisicion/TxtMessage.text = "La contraseña NO coincide"

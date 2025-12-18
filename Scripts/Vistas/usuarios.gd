@@ -30,7 +30,7 @@ func preguntar(tipo: String) -> void:
 	var md = get_parent().get_node("Modelos")
 	var qst = get_parent().get_node("Pregunta")
 	var dic_pregunta = {
-		"data": md.get_node("Usuarios").data,
+		"data": "Usuarios",
 		"id": int($PanelDetalles/TxtId.text),
 		"valor": "",
 		"tipo": tipo,
@@ -59,7 +59,7 @@ func preguntar(tipo: String) -> void:
 		qst.TIPO.QUEST:
 			defecto = true
 	dic_pregunta["valor"] = md.get_valor(
-		dic_pregunta["data"],
+		md.get_node(dic_pregunta["data"]).data,
 		dic_pregunta["id"],
 		dic_pregunta["tipo"],
 		defecto

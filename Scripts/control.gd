@@ -1,6 +1,8 @@
 extends Control
 
-const DEBUG = false # para ingresar instantaneamente sin login
+const DEBUG = true # para ingresar instantaneamente sin login
+
+var logeado = 0 # id de usuario con login
 
 func _ready() -> void:
 	randomize()

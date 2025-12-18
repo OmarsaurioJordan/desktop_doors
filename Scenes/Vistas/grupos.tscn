@@ -145,18 +145,43 @@ theme = ExtResource("4_jk43g")
 text = "Nuevo"
 metadata/_edit_lock_ = true
 
+[node name="LinZonas" type="LineEdit" parent="PanelFiltros"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 95.0
+offset_right = 812.0
+offset_bottom = 139.0
+theme = ExtResource("4_jk43g")
+placeholder_text = "Zona"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+metadata/_edit_lock_ = true
+
+[node name="BtnRebuscar" type="Button" parent="PanelFiltros"]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 94.0
+offset_right = 928.0
+offset_bottom = 139.0
+focus_mode = 0
+theme = ExtResource("4_jk43g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m107w")
+text = "Buscar"
+metadata/_edit_lock_ = true
+
 [node name="PanelTabla" parent="." instance=ExtResource("3_m2ajn")]
 layout_mode = 0
 offset_left = 194.0
 offset_top = 179.0
-offset_right = 1129.0
+offset_right = 862.0
 offset_bottom = 588.0
 
 [node name="Titulos" type="HBoxContainer" parent="PanelTabla"]
 layout_mode = 2
 offset_left = 6.0
 offset_top = 7.0
-offset_right = 926.0
+offset_right = 661.0
 offset_bottom = 40.0
 alignment = 1
 metadata/_edit_lock_ = true
@@ -229,11 +254,72 @@ metadata/_edit_lock_ = true
 layout_mode = 0
 offset_left = 7.0
 offset_top = 43.0
-offset_right = 926.0
+offset_right = 659.0
 offset_bottom = 401.0
 metadata/_edit_lock_ = true
 
 [node name="Registros" type="VBoxContainer" parent="PanelTabla/Tabla"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="PanelPermisos" parent="." instance=ExtResource("3_m2ajn")]
+layout_mode = 0
+offset_left = 871.0
+offset_top = 244.0
+offset_right = 1126.0
+offset_bottom = 590.0
+
+[node name="Titulos" type="HBoxContainer" parent="PanelPermisos"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 247.0
+offset_bottom = 40.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtId" type="Label" parent="PanelPermisos/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_jk43g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ktkqc")
+text = "ID"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtZona" type="Label" parent="PanelPermisos/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme = ExtResource("4_jk43g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ktkqc")
+text = "Zona"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="TxtOk" type="Label" parent="PanelPermisos/Titulos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_jk43g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ktkqc")
+text = "Ok"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Tabla" type="ScrollContainer" parent="PanelPermisos"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 246.0
+offset_bottom = 336.0
+metadata/_edit_lock_ = true
+
+[node name="Registros" type="VBoxContainer" parent="PanelPermisos/Tabla"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

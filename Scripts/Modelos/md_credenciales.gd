@@ -46,6 +46,32 @@ func buscar_usuario(usuario_id: int) -> Array:
 		res.append(dt)
 	return res
 
+# verificar credenciales
+
+func hay_credencial(id: int) -> bool:
+	return get_data(id)["datos"] != ""
+
+func set_valor_hash(id: int, valor: String, tipo="") -> void:
+	md.set_valor(data, id, md.get_hash(valor), tipo)
+
+func test_credencial_hash(id: int, valor: String) -> bool:
+	var clave = get_data(id)["datos"]
+	if clave == "":
+		return false
+	return clave == md.get_hash(valor)
+
+func login_password(usuario_id: int, password: String) -> bool:
+	for dt in data:
+		if dt["id"] == 0 and not dt["activo"]:
+			continue
+		if dt["usuario_id"] != usuario_id:
+			continue
+		if dt["tipo_id"] != 3:
+			continue
+		if test_credencial_hash(dt["id"], password):
+			return true
+	return false
+
 # funciones genericas heredadas del modelo general
 
 func busca_data(valor, tipo="") -> Array:

@@ -165,6 +165,16 @@ func busca_profesores() -> Array:
 		res.append(dt)
 	return res
 
+func login(email: String, password: String, is_admin=false) -> int:
+	var usuarios = md.busca_data(data, email, "email")
+	for usr in usuarios:
+		if is_admin:
+			if usr["rol_id"] != 6:
+				continue
+		if md.get_node("Credenciales").login_password(usr["id"], password):
+			return usr["id"]
+	return 0
+
 # funciones genericas heredadas del modelo general
 
 func busca_data(valor, tipo="") -> Array:

@@ -1,6 +1,8 @@
 extends Node
 
 const ACTIVO = ["--", "|"] # false, true
+const CLAVE_INTERNA = "SENA_CEAI_ADSO" # cualquier cosa, para password con md5
+const CEDULA_MASTER = "11344"
 
 const ROLES = [
 	"N/A", # 0
@@ -13,12 +15,19 @@ const ROLES = [
 	"Aprendiz", # 7
 	"Otro" # 8
 ]
+const CREDENCIALES = [
+	"Huella",
+	"Facial",
+	"Tarjeta",
+	"Contraseña"
+]
 
 signal actualizacion()
 
 func _ready() -> void:
 	randomize()
 	get_parent().set_selector_grupo(ROLES, "opt_roles")
+	get_parent().set_selector_grupo(CREDENCIALES, "opt_credencales")
 	# cargar datos artificiales en el modelo de informacion
 	call_deferred("carga_por_defecto")
 
@@ -37,6 +46,10 @@ func carga_por_defecto() -> void:
 		$Credenciales.create_azar(u["id"])
 	for u in $Usuarios.data:
 		$Permisos.create_azar(u["id"])
+	# crear al administrador master para acceso
+	var i = $Usuarios.create("Admin", "", "Master", "Sena",
+		CEDULA_MASTER, 6, 0, clave_azar(6), "admin@sena")
+	$Credenciales.create(i, 3, get_hash("123456"), 0)
 
 # funciones generales para manejo de datos
 
@@ -89,6 +102,10 @@ func busca_data(data: Array, valor, tipo="") -> Array:
 	return res
 
 # funciones generales como herramientas
+
+func get_hash(valor: String) -> String:
+	var clave = CLAVE_INTERNA + valor + CLAVE_INTERNA
+	return clave.md5_text()
 
 func clave_azar(total: int) -> String:
 	var res = ""
