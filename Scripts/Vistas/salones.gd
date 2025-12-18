@@ -66,4 +66,4 @@ func show_registros():
 		r.set_value(5, md.get_activo(dt["activo"]))
 
 func _on_btn_nuevo_pressed() -> void:
-	pass
+	pass # Tarea nuevo salon

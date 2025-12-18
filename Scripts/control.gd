@@ -24,7 +24,7 @@ func _ready() -> void:
 func _on_menu_item(id: int):
 	match id:
 		0: # ir a la configuracion
-			pass
+			pass # Tarea hacer menu de opciones
 		1: # salir, logout
 			set_vista("Login")
 

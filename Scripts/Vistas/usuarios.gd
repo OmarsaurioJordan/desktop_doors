@@ -148,7 +148,6 @@ func seleccionado(id=-1):
 		$PanelDetalles/TxtCentro.text = md.get_node("Centros").get_nombre(usr["centro_id"])
 		$PanelDetalles/TxtRol.text = md.ROLES[usr["rol_id"]]
 		$PanelDetalles/TxtId.text = str(id)
-		get_parent().get_node("Credenciales").propagado(id)
 		for r in $PanelTabla/Tabla/Registros.get_children():
 			r.soy_presionado(id)
 
@@ -180,8 +179,12 @@ func _on_opt_tipo_item_selected(index: int) -> void:
 
 func _on_btn_permisos_pressed() -> void:
 	if $PanelDetalles/TxtId.text != "0":
+		var id = int($PanelDetalles/TxtId.text)
+		get_parent().get_node("Permisos").propagado(id)
 		get_parent().set_vista("Permisos")
 
 func _on_btn_credenciales_pressed() -> void:
 	if $PanelDetalles/TxtId.text != "0":
+		var id = int($PanelDetalles/TxtId.text)
+		get_parent().get_node("Credenciales").propagado(id)
 		get_parent().set_vista("Credenciales")

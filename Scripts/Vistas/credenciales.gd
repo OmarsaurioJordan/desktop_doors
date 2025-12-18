@@ -30,7 +30,7 @@ func propagado(id=0):
 		var md = get_parent().get_node("Modelos")
 		var usr = md.get_node("Usuarios").get_data(id)
 		$Volver/TxtNombre.text = usr["nombre"]
-		$Volver/TxtCedula.text = usr["cedula"]
+		$Volver/TxtCedula.text = "cc: " + usr["cedula"]
 		var qst = get_parent().get_node("Pregunta")
 		var data = md.get_node("Credenciales").buscar_usuario(id)
 		for r in $PanelTabla/Tabla/Registros.get_children():
@@ -41,11 +41,10 @@ func propagado(id=0):
 			r.inicializa($PanelTabla/Titulos.get_children(), true)
 			r.set_value(0, str(dt["id"]))
 			r.seleccionado.connect(seleccionado)
-			# Tarea agregar cambio activo
-		if data.size() == 0:
-			my_seleccionado = 0
-		else:
-			my_seleccionado = 1
+			r.get_registro(2).pressed.connect(qst.pregunta_quest.bind(
+				"Credenciales", dt["id"], self, "la credencial"))
+		if data.size() <= 1:
+			my_seleccionado = data.size()
 		actualizacion()
 
 func seleccionado(id=0):
@@ -100,7 +99,7 @@ func _on_btn_adquirir_pressed() -> void:
 			if randf() < 0.5:
 				set_credencial(md.clave_azar(64))
 			else:
-				$Adquisicion/TxtMessage.text = "Fallo de lectura, reubique el dedo"
+				$Adquisicion/TxtMessage.text = "Mala lectura por favor re inténtelo"
 		else:
 			$Adquisicion/TxtMessage.text = "No se pudo encontrar el dispositivo huellero"
 	elif $Adquisicion/Otro.visible:
@@ -134,7 +133,7 @@ func _on_btn_testear_pressed() -> void:
 			if randf() < 0.5:
 				$Adquisicion/TxtMessage.text = "La huella leída es correcta"
 			else:
-				$Adquisicion/TxtMessage.text = "La huella leída NO coincide"
+				$Adquisicion/TxtMessage.text = "Mala lectura por favor re inténtelo"
 		else:
 			$Adquisicion/TxtMessage.text = "No se pudo encontrar el dispositivo huellero"
 	elif $Adquisicion/Otro.visible:
@@ -152,6 +151,7 @@ func _on_btn_crear_pressed() -> void:
 	var md = get_parent().get_node("Modelos")
 	var tipo = $NuevoCredencial/TipoCredencial/OptTipoCredencial.get_selected_id()
 	md.get_node("Credenciales").create(my_propagado, tipo)
+	propagado(my_propagado)
 
 func _on_btn_probar_pressed() -> void:
 	var port = $Adquisicion/Huellero/PuertoHuellero/OptPuertoHuellero.get_selected_id()

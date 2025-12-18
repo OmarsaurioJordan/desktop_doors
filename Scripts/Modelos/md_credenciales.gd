@@ -18,12 +18,7 @@ func create_azar(usuario_id: int):
 	var tipo = 0 if randf() < 0.5 else 3
 	for i in range(num):
 		date = Time.get_unix_time_from_system() - randi_range(DIA * 30, DIA * 30 * 12)
-		create(
-			usuario_id,
-			tipo,
-			md.clave_azar(64) if tipo == 0 else md.clave_azar(4),
-			date
-		)
+		create(usuario_id, tipo, md.clave_azar(64) if tipo == 0 else md.clave_azar(4), date)
 
 func create(usuario_id, tipo_id, datos="", fecha=0) -> int:
 	id_key += 1

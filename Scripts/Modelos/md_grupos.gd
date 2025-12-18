@@ -53,21 +53,29 @@ func busca_grupos(nombre="", con_usuario=0, con_zona=0, con_salon=0) -> Array:
 				continue
 			elif con_usuario == 2 and usrs != 0:
 				continue
-		if con_zona != 0:
-			pass # Tarea
-		if con_salon != 0:
-			pass # Tarea
+		if con_zona != 0: # 1con 2sin
+			var zns = get_num_zonas(dt["id"])
+			if con_zona == 1 and zns == 0:
+				continue
+			elif con_zona == 2 and zns != 0:
+				continue
+		if con_salon != 0: # 1con 2sin
+			var slns = get_num_salones(dt["id"])
+			if con_salon == 1 and slns == 0:
+				continue
+			elif con_salon == 2 and slns != 0:
+				continue
 		res.append(dt)
 	return res
 
 func get_num_usuarios(centro_id: int) -> int:
-	return 0 # Tarea
+	return 0 # Tarea contar usuarios asociados al grupo
 
 func get_num_zonas(centro_id: int) -> int:
-	return 0 # Tarea
+	return 0 # Tarea contar zonas asociadas al grupo
 
 func get_num_salones(centro_id: int) -> int:
-	return 0 # Tarea
+	return 0 # Tarea contar salones asociados al grupo
 
 # funciones genericas heredadas del modelo general
 

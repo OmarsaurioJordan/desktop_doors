@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cy7l8585xk7wo"]
+[gd_scene load_steps=24 format=3 uid="uid://cy7l8585xk7wo"]
 
 [ext_resource type="Script" uid="uid://b2p85f2wtyjql" path="res://Scripts/control.gd" id="1_vphrd"]
 [ext_resource type="Script" uid="uid://b0kd6v7o4uxva" path="res://Scripts/Modelos/md_general.gd" id="2_gi5fq"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://pkduypttl18b" path="res://Scenes/Vistas/zonas.tscn" id="9_wu55p"]
 [ext_resource type="PackedScene" uid="uid://h6x72x0evjw6" path="res://Scenes/Vistas/centros.tscn" id="10_60x3v"]
 [ext_resource type="PackedScene" uid="uid://bbxk4fjpnwktp" path="res://Scenes/Vistas/sedes.tscn" id="11_1yixh"]
+[ext_resource type="Script" uid="uid://b7g78wceic8af" path="res://Scripts/Modelos/md_permisos.gd" id="11_d6tv3"]
 [ext_resource type="PackedScene" uid="uid://ca7ihkmiwn56o" path="res://Scenes/Vistas/grupos.tscn" id="12_l3bmo"]
 [ext_resource type="PackedScene" uid="uid://co4rnwu4u32el" path="res://Scenes/Vistas/credenciales.tscn" id="13_jcpca"]
 [ext_resource type="PackedScene" uid="uid://bjdo8bkpillwl" path="res://Scenes/Vistas/permisos.tscn" id="13_s5sn0"]
@@ -57,6 +58,7 @@ script = ExtResource("9_b65us")
 script = ExtResource("9_n3b1b")
 
 [node name="Permisos" type="Node" parent="Modelos"]
+script = ExtResource("11_d6tv3")
 
 [node name="Login" parent="." instance=ExtResource("4_uuio0")]
 layout_mode = 0

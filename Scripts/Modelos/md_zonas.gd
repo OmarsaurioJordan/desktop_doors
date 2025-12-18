@@ -73,7 +73,7 @@ func get_num_salones(zona_id: int) -> int:
 
 func get_num_grupos(zona_id: int) -> int:
 	var total = 0
-	# Tarea
+	# Tarea contar grupos asociados a la zona
 	return total
 
 # funciones genericas heredadas del modelo general

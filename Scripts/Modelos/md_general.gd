@@ -35,6 +35,8 @@ func carga_por_defecto() -> void:
 		$Horarios.create_azar()
 	for u in $Usuarios.data:
 		$Credenciales.create_azar(u["id"])
+	for u in $Usuarios.data:
+		$Permisos.create_azar(u["id"])
 
 # funciones generales para manejo de datos
 

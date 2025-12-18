@@ -110,4 +110,4 @@ func show_registros():
 		r.set_value(1, Time.get_date_string_from_unix_time(dt["final"]))
 
 func _on_btn_nuevo_pressed() -> void:
-	pass
+	pass # Tarea nuevo horario
