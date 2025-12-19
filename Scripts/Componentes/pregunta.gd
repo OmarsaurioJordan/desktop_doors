@@ -225,7 +225,14 @@ func _on_btn_cancelar_pressed() -> void:
 
 func _on_btn_aceptar_pressed() -> void:
 	var md = get_parent().get_node("Modelos")
-	if pregunta["formato"] == FORMATO.PERMISOS or pregunta["formato"] == FORMATO.ASOCIACIONES:
+	if pregunta["formato"] == FORMATO.PERMISOS:
+		# cambiar el estado activo de un permiso de usuario
+		md.get_node(pregunta["data"]).permiso_switch(
+			pregunta["id"], pregunta["tipo"], pregunta["valor"])
+		resultado.emit(pregunta["quien"])
+		visible = false
+		return
+	elif pregunta["formato"] == FORMATO.ASOCIACIONES:
 		# cambiar el estado activo de un permiso de usuario
 		md.get_node(pregunta["data"]).permiso_switch(pregunta["id"], pregunta["valor"])
 		resultado.emit(pregunta["quien"])
