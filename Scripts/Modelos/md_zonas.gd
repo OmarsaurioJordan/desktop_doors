@@ -20,11 +20,14 @@ func _ready() -> void:
 # funciones de creacion de nuevos registros
 
 func create_azar() -> int:
-	var sedes = md.get_node("Sedes").data
+	var sedes = md.get_node("Sedes").get_all()
 	return create(
 		md.item_azar(NOMBRE1) + " " + md.item_azar(NOMBRE2),
-		md.item_azar_no_cero(sedes)["id"]
+		md.item_azar(sedes)["id"]
 	)
+
+func create_auto() -> int:
+	return create("*** nueva ***", 0)
 
 func create(nombre, sede_id) -> int:
 	for dt in data:
@@ -68,7 +71,7 @@ func busca_zonas(nombre="", sede_id=0, con_grupo=0, con_salon=0) -> Array:
 	return res
 
 func get_num_salones(zona_id: int) -> int:
-	var la_data = md.get_node("Salones").data
+	var la_data = md.get_node("Salones").get_all()
 	return md.get_conteo(la_data, zona_id, "zona_id")
 
 func get_num_grupos(zona_id: int) -> int:
@@ -77,6 +80,9 @@ func get_num_grupos(zona_id: int) -> int:
 	return total
 
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)

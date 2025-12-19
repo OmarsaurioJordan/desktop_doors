@@ -74,6 +74,9 @@ func login_password(usuario_id: int, password: String) -> bool:
 
 # funciones genericas heredadas del modelo general
 
+func get_all() -> Array:
+	return data.slice(1)
+
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)
 

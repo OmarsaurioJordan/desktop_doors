@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func create_azar() -> int:
 	var usuarios = md.get_node("Usuarios").busca_profesores()
-	var salones = md.get_node("Salones").data
+	var salones = md.get_node("Salones").get_all()
 	var date = Time.get_unix_time_from_system() + DIA * 30 * 3 - randi_range(DIA, DIA * 30 * 12)
 	return create(
 		md.item_azar(usuarios)["id"],
@@ -24,25 +24,8 @@ func create_azar() -> int:
 		horario_azar()
 	)
 
-func horario_azar() -> String:
-	var res = ""
-	for i in range(5):
-		res += "0" if randf() > 0.4 else "1" # mannanas
-	res += "0" if randf() > 0.2 else "1" # mannana sabado
-	res += "0" if randf() > 0.01 else "1" # mannana domingo
-	for i in range(5):
-		res += "0" if randf() > 0.4 else "1" # tardes
-	res += "0" if randf() > 0.1 else "1" # tarde sabado
-	res += "0" if randf() > 0.01 else "1" # tarde domingo
-	for i in range(5):
-		res += "0" if randf() > 0.1 else "1" # noches
-	res += "0" if randf() > 0.05 else "1" # noche sabado
-	res += "0" if randf() > 0.01 else "1" # noche domingo
-	for i in range(5):
-		res += "0" if randf() > 0.01 else "1" # madrugadas
-	res += "0" if randf() > 0.01 else "1" # madrugada sabado
-	res += "0" if randf() > 0.01 else "1" # madrugada domingo
-	return res
+func create_auto() -> int:
+	return create(0, 0)
 
 func create(usuario_id, salon_id, inicio=0, final=0, horario="") -> int:
 	id_key += 1
@@ -79,7 +62,32 @@ func busca_horarios(usuario_id=0, salon_id=0, centro_id=0, sede_id=0) -> Array:
 		res.append(dt)
 	return res
 
+# herramientas extra de el horario en rejilla
+
+func horario_azar() -> String:
+	var res = ""
+	for i in range(5):
+		res += "0" if randf() > 0.4 else "1" # mannanas
+	res += "0" if randf() > 0.2 else "1" # mannana sabado
+	res += "0" if randf() > 0.01 else "1" # mannana domingo
+	for i in range(5):
+		res += "0" if randf() > 0.4 else "1" # tardes
+	res += "0" if randf() > 0.1 else "1" # tarde sabado
+	res += "0" if randf() > 0.01 else "1" # tarde domingo
+	for i in range(5):
+		res += "0" if randf() > 0.1 else "1" # noches
+	res += "0" if randf() > 0.05 else "1" # noche sabado
+	res += "0" if randf() > 0.01 else "1" # noche domingo
+	for i in range(5):
+		res += "0" if randf() > 0.01 else "1" # madrugadas
+	res += "0" if randf() > 0.01 else "1" # madrugada sabado
+	res += "0" if randf() > 0.01 else "1" # madrugada domingo
+	return res
+
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)

@@ -101,7 +101,7 @@ func create_azar(force_admin=false) -> int:
 		rol = 6
 	var centro = 0
 	if rol == 1 or rol == 2:
-		var tot_centros = md.get_node("Centros").data.size() - 1
+		var tot_centros = md.get_node("Centros").get_all().size()
 		centro = 1 + randi() % tot_centros
 	return create(
 		first,
@@ -176,6 +176,9 @@ func login(email: String, password: String, is_admin=false) -> int:
 	return 0
 
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)

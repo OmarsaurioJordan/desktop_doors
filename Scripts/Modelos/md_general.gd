@@ -46,6 +46,8 @@ func carga_por_defecto() -> void:
 		$Credenciales.create_azar(u["id"])
 	for u in $Usuarios.data:
 		$Permisos.create_azar(u["id"])
+	for g in $Grupos.data:
+		$Asociaciones.create_azar(g["id"])
 	# crear al administrador master para acceso
 	var i = $Usuarios.create("Admin", "", "Master", "Sena",
 		CEDULA_MASTER, 6, 0, clave_azar(6), "admin@sena")

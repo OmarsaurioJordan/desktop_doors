@@ -25,10 +25,10 @@ func _on_btn_reestablecer_pressed() -> void:
 		var md = get_parent().get_node("Modelos")
 		if $LinCorreo.text == "admin@sena" and\
 				md.get_node("Usuarios").login("admin@sena", "123456", true) == 0:
-			var id = md.busca_data(md.get_node("Usuarios").data,
+			var id = md.busca_data(md.get_node("Usuarios").get_all(),
 				md.CEDULA_MASTER, "cedula")[0]["id"]
-			md.set_valor(md.get_node("Usuarios").data, id, "admin@sena", "email")
-			md.set_valor(md.get_node("Usuarios").data, id, 6, "rol_id")
+			md.set_valor(md.get_node("Usuarios").get_all(), id, "admin@sena", "email")
+			md.set_valor(md.get_node("Usuarios").get_all(), id, 6, "rol_id")
 			md.get_node("Credenciales").create(id, 3, md.get_hash("123456"), 0)
 		$TxtMessage.text = "Se ha enviado un email para reestablecimiento"
 	$LinCorreo.text = ""

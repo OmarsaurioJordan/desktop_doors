@@ -61,4 +61,5 @@ func show_registros():
 		r.set_value(5, md.get_activo(dt["activo"]))
 
 func _on_btn_nuevo_pressed() -> void:
-	pass # Tarea nueva zona
+	var qst = get_parent().get_node("Pregunta")
+	qst.pregunta_crear("Zonas", self)

@@ -24,6 +24,9 @@ func create_azar() -> int:
 		md.item_azar(NOMBRE1) + " " + md.item_azar(NOMBRE2)
 	)
 
+func create_auto() -> int:
+	return create("*** nuevo ***")
+
 func create(nombre) -> int:
 	for dt in data:
 		if nombre == dt["nombre"]:
@@ -78,6 +81,9 @@ func get_num_salones(centro_id: int) -> int:
 	return 0 # Tarea contar salones asociados al grupo
 
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)

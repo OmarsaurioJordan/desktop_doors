@@ -17,16 +17,19 @@ func _ready() -> void:
 # funciones de creacion de nuevos registros
 
 func create_azar() -> int:
-	var centros = md.get_node("Centros").data
-	var zonas = md.get_node("Zonas").data
-	var centro = md.item_azar_no_cero(centros)
+	var centros = md.get_node("Centros").get_all()
+	var zonas = md.get_node("Zonas").get_all()
+	var centro = md.item_azar(centros)
 	if randf() < 0.15:
 		centro = centros[0]
 	return create(
 		md.item_azar(NOMBRE) + "-" + str(md.clave_azar(2)),
-		md.item_azar_no_cero(zonas)["id"],
+		md.item_azar(zonas)["id"],
 		centro["id"]
 	)
+
+func create_auto() -> int:
+	return create("*** nuevo ***", 0, 0)
 
 func create(nombre, zona_id, centro_id) -> int:
 	for dt in data:
@@ -63,6 +66,9 @@ func busca_salones(nombre="", centro_id=0, zona_id=0, sede_id=0) -> Array:
 	return res
 
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)

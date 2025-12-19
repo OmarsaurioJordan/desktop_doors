@@ -10,6 +10,10 @@ func _ready() -> void:
 	get_parent().get_node("Pregunta").resultado.connect(resultado)
 	get_parent().get_node("Modelos").actualizacion.connect(actualizacion)
 	crea_horario()
+	$PanelUsuario/Datos1/TxtNombre.pressed.connect(set_nombre)
+	$PanelUsuario/Datos1/TxtSalon.pressed.connect(set_salon)
+	$PanelUsuario/Datos1/TxtFechaIni.pressed.connect(set_fecha.bind("inicio"))
+	$PanelUsuario/Datos2/TxtFechaFin.pressed.connect(set_fecha.bind("final"))
 
 func crea_horario() -> void:
 	var horas = ["7 am", "1 pm", "6 pm", " 11 pm"]
@@ -18,6 +22,7 @@ func crea_horario() -> void:
 			var campo = CAMPO_HORARIO.instantiate()
 			$PanelHorario/Horario.add_child(campo)
 			campo.text = h
+			campo.pressed.connect(cambia_horario)
 
 func actualizacion() -> void:
 	actualizar = true
@@ -79,7 +84,7 @@ func seleccionado(id=-1):
 			Time.get_date_string_from_unix_time(hor["inicio"])
 		$PanelUsuario/Datos2/TxtFechaFin.text = "F: " +\
 			Time.get_date_string_from_unix_time(hor["final"])
-		var udt = md.get_node("Usuarios").data
+		var udt = md.get_node("Usuarios").get_all()
 		$PanelUsuario/Datos2/TxtCedula.text = "cc: " +\
 			md.get_valor(udt, hor["usuario_id"], "cedula", "")
 		var zona_id = md.get_node("Salones").get_data(hor["salon_id"])["zona_id"]
@@ -103,11 +108,63 @@ func set_horario(horario: String) -> void:
 			hor.button_pressed = horario.substr(i, 1) == "1"
 		i += 1
 
+func get_horario() -> String:
+	var res = ""
+	var i = -7
+	for hor in $PanelHorario/Horario.get_children():
+		if i >= 0:
+			res += "1" if hor.button_pressed else "0"
+		i += 1
+	return res
+
 func show_registros():
 	var md = get_parent().get_node("Modelos")
 	for r in $PanelTabla/Tabla/Registros.get_children():
 		var dt = md.get_node("Horarios").get_data(int(r.get_value(0)))
-		r.set_value(1, Time.get_date_string_from_unix_time(dt["final"]))
+		match $PanelTabla/Titulos/OptFiltro.get_selected_id():
+			0:
+				r.set_value(1, md.get_node("Usuarios").get_nombre(dt["usuario_id"]))
+			1:
+				r.set_value(1, md.get_node("Salones").get_nombre(dt["salon_id"]))
+			2:
+				r.set_value(1, Time.get_date_string_from_unix_time(dt["inicio"]))
+			3:
+				r.set_value(1, Time.get_date_string_from_unix_time(dt["final"]))
 
 func _on_btn_nuevo_pressed() -> void:
-	pass # Tarea nuevo horario
+	var qst = get_parent().get_node("Pregunta")
+	qst.pregunta_crear("Horarios", self)
+
+func set_nombre() -> void:
+	if my_seleccionado == -1:
+		return
+	var qst = get_parent().get_node("Pregunta")
+	var md = get_parent().get_node("Modelos")
+	var parametros = md.get_node("Usuarios").get_nombres()
+	qst.pregunta_option("Horarios", "usuario_id", my_seleccionado,
+		self, "Elija a un usuario", parametros)
+
+func set_salon() -> void:
+	if my_seleccionado == -1:
+		return
+	var qst = get_parent().get_node("Pregunta")
+	var md = get_parent().get_node("Modelos")
+	var parametros = md.get_node("Salones").get_nombres()
+	qst.pregunta_option("Horarios", "salon_id", my_seleccionado,
+		self, "Elija a un ambiente", parametros)
+
+func set_fecha(tipo: String) -> void:
+	if my_seleccionado == -1:
+		return
+	var qst = get_parent().get_node("Pregunta")
+	qst.pregunta_fecha("Horarios", tipo, my_seleccionado, self)
+
+func cambia_horario() -> void:
+	if my_seleccionado == -1:
+		return
+	var horario = get_horario()
+	var md = get_parent().get_node("Modelos")
+	md.get_node("Horarios").set_valor(my_seleccionado, horario, "horario")
+
+func _on_opt_filtro_item_selected(index: int) -> void:
+	actualizacion()

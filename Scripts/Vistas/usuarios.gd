@@ -25,48 +25,8 @@ func _process(_delta: float) -> void:
 		seleccionado(int($PanelDetalles/TxtId.text))
 
 func preguntar(tipo: String) -> void:
-	if $PanelDetalles/TxtId.text == "0":
-		return
-	var md = get_parent().get_node("Modelos")
 	var qst = get_parent().get_node("Pregunta")
-	var dic_pregunta = {
-		"data": "Usuarios",
-		"id": int($PanelDetalles/TxtId.text),
-		"valor": "",
-		"tipo": tipo,
-		"quien": self
-	}
-	var params = [qst.TIPO.OPTION, "", ""]
-	match tipo:
-		"telefono":
-			params[0] = qst.TIPO.LINE
-			params[1] = "Digite un teléfono"
-		"email":
-			params[0] = qst.TIPO.LINE
-			params[1] = "Digite un eMail"
-		"centro_id":
-			params[0] = qst.TIPO.OPTION
-			params[1] = "Escoja un centro"
-			params[2] = md.get_node("Centros").get_nombres()
-		"rol_id":
-			params[0] = qst.TIPO.OPTION
-			params[1] = "Escoja un rol"
-			params[2] = md.ROLES
-	var defecto = ""
-	match params[0]:
-		qst.TIPO.OPTION:
-			defecto = 0
-		qst.TIPO.QUEST:
-			defecto = true
-	dic_pregunta["valor"] = md.get_valor(
-		md.get_node(dic_pregunta["data"]).data,
-		dic_pregunta["id"],
-		dic_pregunta["tipo"],
-		defecto
-	)
-	if params[0] == qst.TIPO.LINE:
-		params[2] = dic_pregunta["valor"]
-	qst.preguntar(params[0], params[1], params[2], dic_pregunta)
+	qst.preguntar_usuario(tipo, int($PanelDetalles/TxtId.text))
 
 func resultado(quien: Node) -> void:
 	if quien == self:

@@ -13,6 +13,9 @@ func _ready() -> void:
 
 # funciones de creacion de nuevos registros
 
+func create_auto() -> int:
+	return create("*** nueva ***", "")
+
 func create(nombre, direccion) -> int:
 	for dt in data:
 		if nombre == dt["nombre"]:
@@ -55,18 +58,21 @@ func busca_sedes(nombre="", direccion="", con_zona=0, con_salon=0) -> Array:
 	return res
 
 func get_num_zonas(sede_id: int) -> int:
-	var la_data = md.get_node("Zonas").data
+	var la_data = md.get_node("Zonas").get_all()
 	return md.get_conteo(la_data, sede_id, "sede_id")
 
 func get_num_salones(sede_id: int) -> int:
 	var total = 0
-	var la_data = md.get_node("Salones").data
+	var la_data = md.get_node("Salones").get_all()
 	var zns = md.get_node("Zonas").busca_data(sede_id, "sede_id")
 	for z in zns:
 		total += md.get_conteo(la_data, z["id"], "zona_id")
 	return total
 
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)

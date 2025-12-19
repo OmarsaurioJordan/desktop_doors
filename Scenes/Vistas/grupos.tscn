@@ -336,3 +336,4 @@ metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="PanelFiltros/BtnBuscar" to="." method="_on_btn_buscar_pressed"]
 [connection signal="pressed" from="PanelFiltros/BtnNuevo" to="." method="_on_btn_nuevo_pressed"]
+[connection signal="pressed" from="PanelFiltros/BtnRebuscar" to="." method="_on_btn_rebuscar_pressed"]

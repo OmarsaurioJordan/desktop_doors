@@ -12,20 +12,20 @@ func _ready() -> void:
 
 func create_azar(usuario_id: int):
 	if randf() < 0.2:
-		var grupos = md.get_node("Grupos").data
+		var grupos = md.get_node("Grupos").get_all()
 		var num = md.item_azar([1, 1, 1, 1, 2, 2, 3])
 		for i in range(num):
-			create(usuario_id, 0, 0, md.item_azar_no_cero(grupos)["id"])
+			create(usuario_id, 0, 0, md.item_azar(grupos)["id"])
 	if randf() < 0.3:
-		var zonas = md.get_node("Zonas").data
+		var zonas = md.get_node("Zonas").get_all()
 		var num = md.item_azar([1, 1, 1, 2, 2, 2, 3, 3, 4, 5])
 		for i in range(num):
-			create(usuario_id, md.item_azar_no_cero(zonas)["id"], 0, 0)
+			create(usuario_id, md.item_azar(zonas)["id"], 0, 0)
 	if randf() < 0.5:
-		var salones = md.get_node("Salones").data
+		var salones = md.get_node("Salones").get_all()
 		var num = randi_range(1, 10)
 		for i in range(num):
-			create(usuario_id, 0, md.item_azar_no_cero(salones)["id"], 0)
+			create(usuario_id, 0, md.item_azar(salones)["id"], 0)
 
 func create(usuario_id, zona_id=0, salon_id=0, grupo_id=0) -> int:
 	if not is_un_tipo(zona_id, salon_id, grupo_id):
@@ -131,14 +131,18 @@ func is_un_tipo(zona_id=0, salon_id=0, grupo_id=0) -> bool:
 func get_salon_permiso(usuario_id, salon_id) -> bool:
 	if get_permiso(usuario_id, "salon_id", salon_id):
 		return true
-	var zona_id = md.get_valor(md.get_node("Salones").data, salon_id, "zona_id", 0)
+	var zona_id = md.get_valor(md.get_node("Salones").get_all(), salon_id, "zona_id", 0)
 	if get_permiso(usuario_id, "zona_id", zona_id):
 		return true
+	var grupo
 	# Tarea dar permiso si horario
 	# Tarea dar permiso si grupo
 	return false
 
 # funciones genericas heredadas del modelo general
+
+func get_all() -> Array:
+	return data.slice(1)
 
 func busca_data(valor, tipo="") -> Array:
 	return md.busca_data(data, valor, tipo)
